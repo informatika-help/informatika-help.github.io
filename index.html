@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE = edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" type="text/css" href="static/fonts/fonts.css">
+    <link rel="stylesheet" type="text/css" href="static/css/main.css">
+    <title>Главная страница
+    </title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <p class="top-logo">The site's logo</p>
+      </header>
+      <div class="content">
+        <div class="current-src">
+          <p class="src-path">src</p>
+        </div>
+        <div class="content-main" id="app">
+        <div class="src" >
+            <div class="src-block">
+              <p class="src-title">Класс:</p>
+              <div class="select">
+                <select class="src-select" id="src-select-form">
+                  <option disabled selected hidden value="0">Choose</option>
+                  <option value="11">11</option>
+                  <option value="10">10</option>
+                  <option value="9">9</option>
+                  <option value="8">8</option>
+                  <option value="7">7</option>
+                  <option value="6">6</option>
+                </select>
+              </div>
+            </div>
+            <div class="src-block">
+              <p class="src-title">Группа:</p>
+              <div class="select">
+                <select class="src-select" id="src-select-group">
+                  <option disabled selected hidden value="0">Choose</option>
+                  <option value="1">ФИО1</option>
+                  <option value="2">ФИО2</option>
+                </select>
+              </div>
+            </div >
+            <a v-on:click="loadLessons" unselectable="on" onselectstart="return false;" class="src-load">Загрузить</a>
+            <template v-if="isLoaded">
+            <hr class="src-hr">
+              <div class="src-lessons">
+                <a v-for="(lesson, i) in current_sheet" :href="lesson.link" target="_blank" class="src-lesson">
+                  <p class="src-lesson-title">Урок {{i+1}}</p>
+                  <hr class="src-lesson-hr"><span class="src-lesson-date">{{lesson.date}}</span>
+                </a>
+              </div>
+            </template>
+          </div>
+          <div class="sidebar"></div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js"></script>
+    <script src="static/js/main.js"></script>
+  </body>
+</html>
