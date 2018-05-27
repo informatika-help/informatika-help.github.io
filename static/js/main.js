@@ -13,7 +13,8 @@ var vue = new Vue({
   mounted: function mounted() {
     this.getSheet("main", true);
   },
-
+  // Зачем же тут запрос главной таблицы если она не юзается?!
+  // А нехуй тут быстро работать, я же зачем-что писал лишний кусок кода, пустьработает.
   methods: {
     getSheet: function getSheet(sheet) {
       var _this = this;
